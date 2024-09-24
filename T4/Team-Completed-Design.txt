@@ -1,0 +1,11 @@
+
+
+Submit your high quality deliverables here. Please combine the deliverables into a single document with multiple sections following this outline.  All parts of the document are to be consistent with each other and up-to-date.  Keep track of versions of the deliverables. See course notes for more details and discussion in the forum for clarifications.
+
+Introduction 
+Requirements Specification
+Use Case Model
+Full set of Use Case Narratives
+UML Class Diagram
+Glossary
+

@@ -1,0 +1,15 @@
+
+
+
+
+
+Submit your high quality deliverable here. The project requirements should be complete, reviewed, and show a complete understanding of the project.  Your deliverable should have clear formatting and include a glossary to support the requirements.
+
+Introduction
+Use Case Model
+Complete Set of Atomic Requirements
+Metrics you wish to report (attendance is one mandatory metric)
+Glossary
+Option, for up to 50% extra credit, is evidence that you used the atomic requirements metrics to improve and review your work.  Remember there are both a set of metrics for the whole document and another metric for each individual requirement. I suggest you have all (or at least a large subset) of the team assign metrics to each atomic requirement in your final draft.  Use those to see what to improve before turning it in. Then group vote values for the set of requirements and show your combined score.
+
+One interesting idea for a metric (and a good measure of requirement quality) to to report on how much changed from your individual work on requirements (T2) to the combined and improved set here.
