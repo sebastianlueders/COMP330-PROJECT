@@ -1,0 +1,17 @@
+﻿Metrics:
+1. Attendance
+2. Time spent in team meetings
+3. Percentage of Atomic Requirements that were changed from initial requirements
+4. Percent of Atomic Requirements completed after each week
+5. Test Coverage
+6. Percent Defect Free
+   1. Number of components that don’t have defects
+7. Appraisal / Failure Ratio
+   1. Time spent in system evaluation / time spent correcting errors
+
+
+Metrics for Atomic Requirements:
+1. Time to complete each metric
+2. Percent of completed requirements
+3. Percent of completed parts of each requirement
+4. Order of requirement completion
