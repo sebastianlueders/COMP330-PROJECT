@@ -1,0 +1,26 @@
+
+Submit your completed implementation of your project as a consistent and complete document outlined below.
+
+See Course One Note (link on Sakai Overview) for further details and ideas. Submit as a well-structured, high quality document, all in one piece, with all deliverables except code.  DO NOT EXPECT to be able to update or change or add to after you turn it in.  DO NOT EXPECT to be able to turn it in late.
+
+Provide accessible link to your code in repository such as GitHub; or provide a full IntelliJ project.  Include any text files or other files necessary to run your code.
+
+Document Outline:
+
+Introduction, include notes on changes since last deliverable, include summary of the whole project and key accomplishments.
+
+Requirements
+
+Use Case Model and All Narratives
+
+UML Class Diagram
+
+UML Sequence Diagram for specified TWO  actions (member seeking access to club and another of your choice; a sequence diagram often implements one use case narrative)
+
+Software Quality Report including a minimum of two items with formal review / inspection (see lecture notes - one code, one non code) Including a report on your system testing.
+
+Link to Code Repository that you have baselined - NOT YOUR WORKING DIRECTORY
+
+Glossary
+
+NOTE: you may wish to focus on consistency and completeness from requirements to use case to narrative to UML class and sequence diagrams to test cases (and the reverse too).
