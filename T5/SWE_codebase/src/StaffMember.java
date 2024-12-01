@@ -1,6 +1,6 @@
 
 
-pubic class StaffMember {
+public class StaffMember {
 
 
 
