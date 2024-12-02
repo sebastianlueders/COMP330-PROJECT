@@ -18,14 +18,13 @@ public class LoginPortal {
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
 
-        Object user = clubDatabase.getUser(userID, password); 
-        if (user != null) {
+        int userPriv = clubDatabase.getUser(userID, password); 
+        if (userPriv != 0) {
             System.out.println("Login successful for User ID: " + userID);
-            if (user instanceof StaffMember) {
-                System.out.println("Welcome, Staff Member!");
-                displayStaffMenu((StaffMember) user);
-            } else if (user instanceof Manager) {
-                System.out.println("Welcome, Manager!");
+            if (userPriv == 1) {
+                this.displayMenu(userPriv);
+            } else if (userPriv == 2) {
+                this.displayMenu(userPriv);
                 // Manager menu can be implemented here
             }
         } else {
@@ -36,20 +35,29 @@ public class LoginPortal {
         scanner.close();
     }
 
-    private void displayStaffMenu(StaffMember staff) {
+    private void displayMenu(int priv) {
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
 
+        StaffMember employee = new StaffMember();
+
+        if(priv == 1) {
+            employee = new StaffMember(clubDatabase);
+        } else if(priv ==2) {
+            employee = new Manager(clubDatabase);
+        }
+
         while (isRunning) {
-            System.out.println("\n--- Staff Member Menu ---");
+            System.out.println("\n--- Options Menu ---");
             System.out.println("1. Add New Member");
-            System.out.println("2. Verify Membership");
+            System.out.println("2. Member Check-In");
             System.out.println("3. Check Expired Memberships");
             System.out.println("4. Renew Membership");
             System.out.println("5. Remove User");
             System.out.println("6. Send Renewal Notices");
-            System.out.println("7. Log Out");
-            System.out.println("8. Close Program");
+            System.out.println("7. Generate Reports");
+            System.out.println("8. Log Out");
+            System.out.println("9. Close Program");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -68,33 +76,42 @@ public class LoginPortal {
                     String lastName = scanner.nextLine();
                     System.out.print("Enter Privilege Level (1 for Staff, 2 for Manager): ");
                     int privilegeLevel = scanner.nextInt();
-                    staff.addNewMember(userID, password, email, firstName, lastName, privilegeLevel);
+                    employee.addNewMember(userID, password, email, firstName, lastName, privilegeLevel);
+                    break;
                 case 2:
                     System.out.print("Enter User ID to verify: ");
                     userID = scanner.nextInt();
-                    staff.verifyCustomerMembership(userID);
+                    employee.verifyCustomerMembership(userID);
+                    break;
                 case 3:
                     System.out.print("Enter User ID to check expiration: ");
                     userID = scanner.nextInt();
-                    staff.checkForExpiredMembership(userID);
+                    employee.checkForExpiredMembership(userID);
+                    break;
                 case 4:
                     System.out.print("Enter User ID to renew: ");
                     userID = scanner.nextInt();
                     System.out.print("Enter duration in days: ");
                     int duration = scanner.nextInt();
-                    staff.renewMembership(userID, duration);
+                    employee.renewMembership(userID, duration);
+                    break;
                 case 5:
                     System.out.print("Enter User ID to remove: ");
                     userID = scanner.nextInt();
-                    staff.removeUser(userID);
+                    employee.removeUser(userID);
+                    break;
                 case 6:
-                    staff.sendRenewalNotices();
+                    employee.sendRenewalNotices();
+                    break;
                 case 7:
+                    employee.generateReport(1);
+                    break;
+                case 8:
                     isRunning = false;
                     System.out.println();
                     login();
 
-                case 8:
+                case 9:
                     System.out.println("Goodbye");
                     isRunning = false;
                     break;
@@ -106,5 +123,6 @@ public class LoginPortal {
 
         scanner.close();
     }
+
 
 }

@@ -1,11 +1,22 @@
-
+import java.time.LocalDate;
 
 public class Manager extends StaffMember {
 // Call the parent class (StaffMember) constructor
-    public Manager() {
-        
+    public Manager(ClubDatabase clubDatabase) {
+        super(clubDatabase);
     }
 
+    @Override
+    public void sendRenewalNotices() {
+        System.out.println("=== Renewal Notices ===");
+        /*for (ClubDatabase.Member member : clubDatabase.users.values()) {
+            if (member.dateOfExpiration.isBefore(LocalDate.now().plusDays(7)) && member.dateOfExpiration.isAfter(LocalDate.now())) {
+                System.out.println("Reminder: Membership for " + member.firstName + " " + member.lastName + " is expiring on " + member.dateOfExpiration + ".");
+            }
+        }*/
+    }
+
+    @Override
     public void generateReport(int reportType) {
         switch (reportType) {
             case 1:

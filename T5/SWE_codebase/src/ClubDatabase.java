@@ -34,19 +34,27 @@ public class ClubDatabase {
             this.privilegeLevel = privilegeLevel;
         }
 
+        public Member(int userID, String password, String email, String firstName, String lastName, int privilegeLevel, int numDaysLeft) {
+            this.userID = userID;
+            this.password = password;
+            this.email = email;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.dateOfLastEntry = LocalDate.now();
+            this.dateOfExpiration = LocalDate.now().plusDays(numDaysLeft);
+            this.totalVisits = 0;
+            this.privilegeLevel = privilegeLevel;
+        }
+
     }
 
     // Retrieve user info from database
-    public Object getUser(int userID, String password) {
+    public int getUser(int userID, String password) {
         Member user = users.get(userID);
         if (user != null && user.password.equals(password)) {
-            if(user.privilegeLevel == 1) {
-                return new StaffMember();
-            } else if (user.privilegeLevel == 2) {
-                return new Manager();
-            };
+            return user.privilegeLevel;
         }
-        return null;
+        return 0;
     }
 
     // Initializing database with smart userIDs
@@ -54,6 +62,7 @@ public class ClubDatabase {
         
         users.put(101, new Member(101, "password", "Yared@gmail.com", "Yared", "Leake", 1));
         users.put(102, new Member(102, "password", "Red@gmail.com", "Red", "Dot", 2));
+        users.put(103, new Member(103, "password", "Red@gmail.com", "Red", "Dot", 2, -1));
 
     }
 

@@ -4,7 +4,7 @@ public class StaffMember {
     private ClubDatabase clubDatabase;
 
     public StaffMember() {
-        
+
     }
 
     public StaffMember(ClubDatabase clubDatabase) {
@@ -26,9 +26,11 @@ public class StaffMember {
         if (clubDatabase.users.containsKey(userID)) {
             ClubDatabase.Member member = clubDatabase.users.get(userID);
             if (member.dateOfExpiration.isAfter(LocalDate.now())) {
-                System.out.println("Membership is valid for " + member.firstName);
+                System.out.println("Access granted for " + member.firstName);
+                member.dateOfLastEntry = LocalDate.now();
+                member.totalVisits++;
             } else {
-                System.out.println("Membership is expired for " + member.firstName);
+                System.out.println("Membership expired for " + member.firstName);
             }
         } else {
             System.out.println("User ID not found or not a member.");
@@ -69,11 +71,10 @@ public class StaffMember {
     }
 
     public void sendRenewalNotices() {
-        System.out.println("=== Renewal Notices ===");
-        for (ClubDatabase.Member member : clubDatabase.users.values()) {
-            if (member.dateOfExpiration.isBefore(LocalDate.now().plusDays(7)) && member.dateOfExpiration.isAfter(LocalDate.now())) {
-                System.out.println("Reminder: Membership for " + member.firstName + " " + member.lastName + " is expiring on " + member.dateOfExpiration + ".");
-            }
-        }
+        System.out.println("Must be a manager!");
+    }
+
+    public void generateReport(int reportType) {
+        System.out.println("Must be a manager!");
     }
 }
