@@ -2,6 +2,8 @@ public class LoginPortal {
 
     private ClubDatabase clubDatabase;
 
+    
+
     public LoginPortal(ClubDatabase clubDatabase) {
         this.clubDatabase = clubDatabase;
     }
