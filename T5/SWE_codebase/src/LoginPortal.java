@@ -18,7 +18,7 @@ public class LoginPortal {
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
 
-        Object user = clubDatabase.getUser(userID, password);
+        Object user = clubDatabase.getUser(userID, password); 
         if (user != null) {
             System.out.println("Login successful for User ID: " + userID);
             if (user instanceof StaffMember) {
@@ -30,7 +30,10 @@ public class LoginPortal {
             }
         } else {
             System.out.println("Invalid credentials. Please try again.");
+            login();
         }
+
+        scanner.close();
     }
 
     private void displayStaffMenu(StaffMember staff) {
@@ -45,7 +48,8 @@ public class LoginPortal {
             System.out.println("4. Renew Membership");
             System.out.println("5. Remove User");
             System.out.println("6. Send Renewal Notices");
-            System.out.println("7. Exit");
+            System.out.println("7. Log Out");
+            System.out.println("8. Close Program");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -65,38 +69,42 @@ public class LoginPortal {
                     System.out.print("Enter Privilege Level (1 for Staff, 2 for Manager): ");
                     int privilegeLevel = scanner.nextInt();
                     staff.addNewMember(userID, password, email, firstName, lastName, privilegeLevel);
-                    break;
                 case 2:
                     System.out.print("Enter User ID to verify: ");
                     userID = scanner.nextInt();
                     staff.verifyCustomerMembership(userID);
-                    break;
                 case 3:
                     System.out.print("Enter User ID to check expiration: ");
                     userID = scanner.nextInt();
                     staff.checkForExpiredMembership(userID);
-                    break;
                 case 4:
                     System.out.print("Enter User ID to renew: ");
                     userID = scanner.nextInt();
                     System.out.print("Enter duration in days: ");
                     int duration = scanner.nextInt();
                     staff.renewMembership(userID, duration);
-                    break;
                 case 5:
                     System.out.print("Enter User ID to remove: ");
                     userID = scanner.nextInt();
                     staff.removeUser(userID);
-                    break;
                 case 6:
                     staff.sendRenewalNotices();
-                    break;
                 case 7:
                     isRunning = false;
+                    System.out.println();
+                    login();
+
+                case 8:
+                    System.out.println("Goodbye");
+                    isRunning = false;
                     break;
+
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+
+        scanner.close();
     }
+
 }

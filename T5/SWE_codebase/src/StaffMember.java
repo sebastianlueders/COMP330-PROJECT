@@ -3,6 +3,10 @@ import java.time.LocalDate;
 public class StaffMember {
     private ClubDatabase clubDatabase;
 
+    public StaffMember() {
+        
+    }
+
     public StaffMember(ClubDatabase clubDatabase) {
         this.clubDatabase = clubDatabase;
     }

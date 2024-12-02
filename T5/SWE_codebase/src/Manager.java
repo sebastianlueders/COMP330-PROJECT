@@ -2,8 +2,8 @@
 
 public class Manager extends StaffMember {
 // Call the parent class (StaffMember) constructor
-    public Manager(ClubDatabase clubDatabase) {
-        super(clubDatabase); 
+    public Manager() {
+        
     }
 
     public void generateReport(int reportType) {

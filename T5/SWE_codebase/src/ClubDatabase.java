@@ -41,9 +41,9 @@ public class ClubDatabase {
         Member user = users.get(userID);
         if (user != null && user.password.equals(password)) {
             if(user.privilegeLevel == 1) {
-                return new StaffMember(this);
+                return new StaffMember();
             } else if (user.privilegeLevel == 2) {
-                return new Manager(this);
+                return new Manager();
             };
         }
         return null;
